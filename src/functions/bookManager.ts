@@ -5,15 +5,23 @@ import { Books } from '../data/books';
 const prompt = promptSync();
 
 function addBook(prop: Book): void {
-    Books.push(prop)
-    console.log(`${prop.title} has been added to the list`)
+  Books.push(prop);
+  console.log(`${prop.title} has been added to the list`);
 }
 
-// Fungsi listBooks
-// Fungsi ini digunakan untuk menampilkan semua buku yang tersimpan
-// Tidak memerlukan parameter
-// Fungsi ini tidak mengembalikan nilai (void)
-// Petunjuk: pikirkan cara menampilkan data buku dengan format yang mudah dibaca
+function listBooks(): void {
+  if (Books.length === 0) {
+    console.log("You don't have any book");
+  } else {
+    console.log('\n=== List of Books ===');
+
+    Books.forEach((book, index) => {
+      console.log(
+        `${index + 1}. Title: ${book.title} | Author: ${book.author} | Year: ${book.publicationYear}`
+      );
+    });
+  }
+}
 
 // Fungsi searchBook
 // Fungsi ini digunakan untuk mencari buku berdasarkan judul
