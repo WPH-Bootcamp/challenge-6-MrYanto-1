@@ -21,7 +21,7 @@ export function listBooks(): void {
 }
 
 export function searchBook(title?: string): void {
-  if (!title) {
+  if (!title || title.trim() === "") {
     console.log("No books found, here's the list of books you have:");
     listBooks();
     return;
